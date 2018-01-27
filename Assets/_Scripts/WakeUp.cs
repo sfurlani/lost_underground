@@ -11,6 +11,7 @@ public class WakeUp : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator>();
+
 		button = gameObject.GetComponent<Button>();
 		button.onClick.AddListener(Fade);
 		Debug.Log("I was made");
@@ -23,5 +24,8 @@ public class WakeUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	void Transition () {
 	}
 }
