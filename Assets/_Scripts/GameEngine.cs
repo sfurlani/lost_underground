@@ -22,7 +22,7 @@ public class GameEngine : MonoBehaviour {
 		for (var i = 0; i < Stations; i++) {
 			var station = Instantiate<GameObject>(stationPrefab, transform);
 			var data = station.GetComponent<StationDataModel>();
-			data.bench = GameData.benches[i];
+			data.vending = GameData.vendings[i];
 			data.lurch = GameData.lurches[i];
 			data.suffix = GameData.suffixes[i];
 			data.audio = GameData.audio[i];
@@ -42,7 +42,7 @@ public class GameEngine : MonoBehaviour {
 }
 
 struct GameData {
-	public static readonly bool[] benches = {true, false, true, false, true};
+	public static readonly bool[] vendings = {true, false, true, false, true};
 	public static readonly bool[] lurches = {false, true, true, false, true};
 	public static readonly string[] suffixes = {"town", "ville", "ville", "city", "town"};
 	public static readonly string[] audio = {"music", "traffic", "music", "water", "quiet"};

@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class StationDataModel : MonoBehaviour {
 
-	public bool bench;
-	public bool benchDiscovered;
-
+	public bool vending;
 	public bool lurch;
-	public bool lurchDiscovered;
-
 	public string audio;
-	public bool audioDiscovered;
-
 	public string suffix;
-	public bool suffixDiscovered;
 
 	// Use this for initialization
 	void Start () {
