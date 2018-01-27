@@ -12,8 +12,11 @@ public class GameEngine : MonoBehaviour {
 
 	public GameObject currentLocation; // tunnel or station
 
-	public GameObject[] allStations;
-	public GameObject[] allTunnels;
+	public GameObject stationCanvas;
+	public GameObject tunnelCanvas;
+
+	private GameObject[] allStations;
+	private GameObject[] allTunnels;
 
 	// Use this for initialization
 	void Start () {
