@@ -425,6 +425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11268d9663b244fcbad19a257502d476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationPrefab: {fileID: 1746696727951266, guid: 9221addd7025a4f9786be63b64ab6e04,
+    type: 2}
+  tunnelPrefab: {fileID: 0}
+  currentLocation: {fileID: 0}
+  allStations: []
+  allTunnels: []
 --- !u!4 &55403616
 Transform:
   m_ObjectHideFlags: 0
