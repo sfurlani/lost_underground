@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameEngine : MonoBehaviour {
 
 	private int	Stations = 5;
-	private int Tunnels = 4;
+	private int Tunnels = 5;
 
 	public GameObject stationPrefab;
 	public GameObject tunnelPrefab;
