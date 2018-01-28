@@ -1222,7 +1222,7 @@ MonoBehaviour:
   town: {fileID: 185399160}
   ville: {fileID: 2045633185}
   music: {fileID: 1251732446}
-  sfx: {fileID: 0}
+  sfx: {fileID: 451427400}
 --- !u!1 &701813983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2086,7 @@ MonoBehaviour:
   dialog: {fileID: 68286382}
   textBox: {fileID: 1779442113}
   background: {fileID: 1880994619}
+  sfx: {fileID: 451427400}
 --- !u!1 &1550047820
 GameObject:
   m_ObjectHideFlags: 0

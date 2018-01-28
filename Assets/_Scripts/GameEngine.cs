@@ -53,6 +53,7 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void Begin() {
+		stationController.music.GetComponent<BackgroundMusic>().playBackground(Background.Trains);
 		Invoke("LoadNextTunnel",2);
 	}
 

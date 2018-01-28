@@ -33,7 +33,6 @@ public class StationController : MonoBehaviour {
 		animator = gameObject.GetComponent<Animator>();
 		musicController = music.GetComponent<BackgroundMusic>();
 		sfxController = sfx.GetComponent<SoundEffects>();
-		musicController.playBackground(Background.Trains);
 	}
 	
 	// Update is called once per frame

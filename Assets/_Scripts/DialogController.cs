@@ -22,12 +22,18 @@ public class DialogController : MonoBehaviour {
 	private Text speakerText;
 	private Text dialogText;
 
+	private bool hasRung = false;
+	public GameObject sfx;
+	private SoundEffects sfxController;
+
+
 	// Use this for initialization
 	void Start () {
 		callerText = caller.GetComponent<Text>();
 		speakerText = speaker.GetComponent<Text>();
 		dialogText = dialog.GetComponent<Text>();
 		gameEngine = gameEngineObject.GetComponent<GameEngine>();
+		sfxController = sfx.GetComponent<SoundEffects>();
 
 		background.SetActive(false);
 	}
@@ -39,6 +45,7 @@ public class DialogController : MonoBehaviour {
 
 	public void StartDialog(DialogEvent dialogEvent) {
 		dialogIndex = 0;
+		hasRung = false;
 		this.currentDialog = dialogEvent;
 		background.SetActive(true);
 		LoadFrame(this.currentDialog.dialog[dialogIndex]);
@@ -57,6 +64,10 @@ public class DialogController : MonoBehaviour {
 		}
 		phone.SetActive(dialog.p);
 		caller.SetActive(dialog.p);
+		if (!hasRung && dialog.p) {
+			sfxController.playSFX(SoundEffect.PhoneRing);
+			hasRung = true;
+		}
 	}
 
 	public void LoadNext() {

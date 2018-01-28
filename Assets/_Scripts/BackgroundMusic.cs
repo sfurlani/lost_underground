@@ -13,8 +13,6 @@ public enum Background {
 
 public class BackgroundMusic : MonoBehaviour {
 
-	private AudioSource source;
-
 	public AudioClip tracks;
 	public AudioClip busker;
 	public AudioClip drips;
@@ -22,7 +20,7 @@ public class BackgroundMusic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		source = gameObject.GetComponent<AudioSource>();
+		
 	}
 	
 	// Update is called once per frame
@@ -31,6 +29,7 @@ public class BackgroundMusic : MonoBehaviour {
 	}
 
 	public void playBackground(Background bg) {
+		AudioSource source = gameObject.GetComponent<AudioSource>();
 		if (source.isPlaying) {
 			source.Stop();
 		}
