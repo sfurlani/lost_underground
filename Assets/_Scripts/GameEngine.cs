@@ -58,13 +58,17 @@ public class GameEngine : MonoBehaviour {
 
 	public void LoadNextStation() {
 		stationIndex++;
+		Debug.Log("Loading Station "+stationIndex);
 		Station station = stations[stationIndex-1];
+		Debug.Log(station);
 		stationController.LoadStation(station);
 	}
 
 	public void LoadNextTunnel() {
 		tunnelIndex++;
+		Debug.Log("Loading Tunnel "+tunnelIndex);
 		DialogEvent startDialog = events[tunnelIndex-1];
+		Debug.Log(startDialog);
 		this.dialogController.StartDialog(startDialog);
 	}
 		
