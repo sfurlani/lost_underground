@@ -6,7 +6,7 @@ public class Station {
 	public bool vb;
 	public bool p;
 	public StationName s;
-	public string a;
+	public Background a;
 }
 
 
@@ -73,11 +73,11 @@ public class GameEngine : MonoBehaviour {
 	}
 		
 	private readonly Station[] stations = {
-		new Station() {vb = true, p = false, s = StationName.Town, a = "none"},
-		new Station() {vb = false, p = true, s = StationName.Ville, a = "none"},
-		new Station() {vb = false, p = false, s = StationName.City, a = "none"},
-		new Station() {vb = true, p = false, s = StationName.Ville, a = "none"},
-		new Station() {vb = false, p = true, s = StationName.City, a = "none"},
+		new Station() {vb = true, p = false, s = StationName.Town, a = Background.Drip},
+		new Station() {vb = false, p = true, s = StationName.Ville, a = Background.Traffic},
+		new Station() {vb = false, p = false, s = StationName.City, a = Background.Busker},
+		new Station() {vb = true, p = false, s = StationName.Ville, a = Background.Drip},
+		new Station() {vb = false, p = true, s = StationName.City, a = Background.Traffic},
 	};
 
 	private static readonly string n = ""; // Narrator

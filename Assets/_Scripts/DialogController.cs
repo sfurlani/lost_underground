@@ -60,7 +60,7 @@ public class DialogController : MonoBehaviour {
 	}
 
 	public void LoadNext() {
-		Debug.Log("Load Next");
+		//Debug.Log("Load Next");
 		dialogIndex++;
 		if ( dialogIndex >= currentDialog.dialog.Length ) {
 			EndDialog();

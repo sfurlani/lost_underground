@@ -21,10 +21,19 @@ public class StationController : MonoBehaviour {
 	public GameObject town;
 	public GameObject ville;
 
+	public GameObject music;
+	private BackgroundMusic musicController;
+
+	public GameObject sfx;
+	private SoundEffects sfxController;
+
 	// Use this for initialization
 	void Start () {
 		gameEngine = gameEngineObject.GetComponent<GameEngine>();
 		animator = gameObject.GetComponent<Animator>();
+		musicController = music.GetComponent<BackgroundMusic>();
+		sfxController = sfx.GetComponent<SoundEffects>();
+		musicController.playBackground(Background.Trains);
 	}
 	
 	// Update is called once per frame
@@ -57,16 +66,20 @@ public class StationController : MonoBehaviour {
 
 	public void StopEvent() {
 		doors.GetComponent<Animator>().SetTrigger("Open");
-		Invoke("CloseDoor",3.0f);
+		sfxController.playSFX(SoundEffect.DoorOpen);
+		musicController.playBackground(currentStation.a);
+		Invoke("CloseDoor",10.0f);
 	}
 
 	public void CloseDoor() {
+		sfxController.playSFX(SoundEffect.DoorClose);
 		doors.GetComponent<Animator>().SetTrigger("Close");
 		Invoke("StartTrain",1.0f);
 	}
 
 	public void StartTrain() {
 		animator.SetTrigger("Start");
+		musicController.playBackground(Background.Trains);
 	}
 
 	public void RunningEvent() {
