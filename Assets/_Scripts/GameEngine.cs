@@ -18,6 +18,7 @@ public class Dialog {
 	public string s;
 	public string t;
 	public bool p = false;
+	public string c = "";
 }
 
 public enum StationName {
@@ -29,19 +30,21 @@ public enum StationName {
 
 public class GameEngine : MonoBehaviour {
 
-	public GameObject currentStation;
-	public GameObject currentTunnel;
+	public GameObject stationObject;
 	public GameObject dialogCanvas;
 
 	private DialogController dialogController;
+	private StationController stationController;
 
-	public int stationIndex = 0;
+	public int stationIndex = 0; // so silly, load station 0 to start
 	public int tunnelIndex = 0;
 
 	// Use this for initialization
 	void Start () {
 		dialogController = dialogCanvas.GetComponent<DialogController>();
-		Invoke("Begin",2);
+		stationController = stationObject.GetComponent<StationController>();
+
+		Begin();
 	}
 	
 	// Update is called once per frame
@@ -50,8 +53,18 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void Begin() {
-		DialogEvent startDialog = events[tunnelIndex];
-		Debug.Log(startDialog);
+		Invoke("LoadNextTunnel",2);
+	}
+
+	public void LoadNextStation() {
+		stationIndex++;
+		Station station = stations[stationIndex-1];
+		this.stationController;
+	}
+
+	public void LoadNextTunnel() {
+		tunnelIndex++;
+		DialogEvent startDialog = events[tunnelIndex-1];
 		this.dialogController.StartDialog(startDialog);
 	}
 		
@@ -76,9 +89,9 @@ public class GameEngine : MonoBehaviour {
 	public static readonly DialogEvent tunnel0 = new DialogEvent() { dialog = new Dialog[] {
 			new Dialog() {s = y, t = "Where, where am I?"},	
 			new Dialog() {s = y, t = "I'm on a subway?"},
-			new Dialog() {s = n, t = "Your phone begins to ring.", p = true},
-			new Dialog() {s = y, t = "...!?", p = true},
-			new Dialog() {s = y, t = "...Hello?", p = true},
+			new Dialog() {s = n, t = "Your phone begins to ring.", p = true, c = d},
+			new Dialog() {s = y, t = "...!?", p = true, c = d},
+			new Dialog() {s = y, t = "...Hello?", p = true, c = d},
 			new Dialog() {s = d, t = "Hi! **** did *** *** ** *** train ok?"},
 			new Dialog() {s = n, t = "The cell service is poor, and there is a lot of static on the line."},
 			new Dialog() {s = y, t = "I think so..."},
@@ -90,8 +103,8 @@ public class GameEngine : MonoBehaviour {
 	};
 
 	public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Dialog[] {
-			new Dialog() {s = s, t = "Your phone is ringing again.", p = true},
-			new Dialog() {s = s, t = "You don't recognize the number.", p = true},
+			new Dialog() {s = s, t = "Your phone is ringing again.", p = true, c = s},
+			new Dialog() {s = s, t = "You don't recognize the number.", p = true, c = s},
 			new Dialog() {s = y, t = "...Hello?"},
 			new Dialog() {s = s, t = "Hello. Do you need help?"},
 			new Dialog() {s = n, t = "Unlike the call with your daughter, this voice comes through strong and clear."},

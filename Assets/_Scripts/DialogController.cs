@@ -45,12 +45,14 @@ public class DialogController : MonoBehaviour {
 	}
 
 	public void LoadFrame(Dialog dialog) {
-		speakerText.text = dialog.s + ":";
+		
 		if (dialog.s == "") {
-			callerText.text = "???";
+			speakerText.text = dialog.s;
+			callerText.text = dialog.c;
 		    dialogText.text = dialog.t;
 		} else {
-			callerText.text = dialog.s;
+			speakerText.text = dialog.s + ":";
+			callerText.text = dialog.c;
 			dialogText.text = "\"" + dialog.t + "\"";
 		}
 		phone.SetActive(dialog.p);

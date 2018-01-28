@@ -20,6 +20,6 @@ public class TextBox : MonoBehaviour {
 	}
 
 	public void TapCallback() {
-
+		dialogController.LoadNext();
 	}
 }
