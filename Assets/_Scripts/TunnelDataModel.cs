@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TunnelDataModel : MonoBehaviour {
 
-	public GameObject[] events;
+	public string[] dialogs;
 
 	// Use this for initialization
 	void Start () {
