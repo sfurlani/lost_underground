@@ -9,6 +9,7 @@ public class EyeFilter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.GetComponent<Image>().enabled = true;
 		animator = gameObject.GetComponent<Animator>();
 		animator.SetTrigger("OpenEyes");
 	}
