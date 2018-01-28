@@ -1,0 +1,69 @@
+
+
+private static readonly string n = ""; // Narrator
+private static readonly string y = "You";
+private static readonly string d = "Daughter";
+private static readonly string m = "Marcus";
+private static readonly string s = "???";
+
+private readonly DialogEvent[] events = new DialogEvent[] {
+tunnel0,
+tunnel1
+};
+
+public static readonly DialogEvent tunnel0 = new DialogEvent() { dialog = new Dialog[] {
+new Dialog() {s = y, t = "Where, where am I?"},	
+new Dialog() {s = y, t = "I'm on a subway?"},
+new Dialog() {s = n, t = "Your phone begins to ring.", p = true, c = d},
+new Dialog() {s = y, t = "...!?", p = true, c = d}, 
+new Dialog() {s = y, t = "...Hello?", p = true, c = d}, p = true, c = d},
+new Dialog() {s = d, t = "Hi! **** did *** *** ** *** train ok?"}, p = true, c = d},
+new Dialog() {s = n, t = "The cell service is poor, and there is a lot of static on the line."}, p = true, c = d},
+new Dialog() {s = y, t = "I think so..."}, p = true, c = d},
+new Dialog() {s = d, t = "Excellent! I ****** to call and *** ***** to ****-"}, p = true, c = d},
+new Dialog() {s = y, t = "I can't hear you, I'm underground..."}, p = true, c = d},
+new Dialog() {s = d, t = "OK! Jus*** ***mber: don't get off at the ***** with the broken vending **-"}, p = true, c = d},
+new Dialog() {s = n, t = "The line is dropped."},
+}
+};
+
+public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Dialog[] {
+new Dialog() {s = n, t = "Your phone is ringing again.", p = true, c = s},
+new Dialog() {s = s, t = "You don't recognize the number.", p = true, c = s},
+new Dialog() {s = y, t = "...Hello?"}, p = true, c = s},
+new Dialog() {s = s, t = "Hello. Do you need help?"}, p = true, c = s},
+new Dialog() {s = n, t = "Unlike the call with your daughter, this voice comes through strong and clear."},p = true, c = s},
+new Dialog() {s = y, t = "Yes, I don't know where I am or where I'm supposed to go."}, p = true, c = s},
+new Dialog() {s = s, t = "I can help you with that. Do not get off at Greenville."}, p = true, c = s},
+new Dialog() {s = s, t = "Oh, ok thank-"}, p = true, c = s},
+new Dialog() {s = n, t = "The call abruptly ends."}
+}
+};
+
+public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Dialog[] {
+new Dialog() {s = n, t = "Marcus is calling.", p = true, c = m},
+new Dialog() {s = m, t = "Do you remember ***************ville line? We were so *********stupid.", p = true, c = m},
+new Dialog() {s = y, t = "Marcus! Can you hear me?", p = true, c = m},
+new Dialog() {s = m, t = "****surprised we survived..."}, p = true, c = m}, p = true, c = m},
+new Dialog() {s = y, t = "Marcus, do you know what stop I get off at? I'm lost."}, p = true, c = m},
+new Dialog() {s = n, t = "Marcus is gone."}
+}
+};
+
+public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Dialog[] {
+new Dialog() {s = n, t = "Your ******** is calling again.", p = true, c = s},
+new Dialog() {s = d, t = "Da*, can you **ar me?", p = true, c = s},
+new Dialog() {s = y, t = "Who is this, hello? Can you help me? I'm lost."}, p = true, c = s},
+new Dialog() {s = d, t = "Oh no. ***, what station are you at?"}, p = true, c = s},
+new Dialog() {s = y, t = "I'm on the train going somewhere. We just passed a stop with a broken vending machine."}, p = true, c = s},
+new Dialog() {s = d, t = "Ok, good. Get off ****vil-- No wait, get off at ****town. I'll be there soon."}, p = true, c = s},
+new Dialog() {s = n, t = "They're gone."}
+}
+};
+
+public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Dialog[] {
+new Dialog() {s = d, t = "Those buskers have really improved over the years, haven't they? ", p = true, c = d},
+new Dialog() {s = d, t = "Remember when you first moved? They were awful. I'm happy to see they never gave up.", p = true, c = d},
+new Dialog() {s = d, t = "It makes me happy to hear them still going at it whenever I pick you up."}, p = true, c = d},
+new Dialog() {s = n, t = "The call drops."}
+
