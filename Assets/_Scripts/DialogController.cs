@@ -72,5 +72,6 @@ public class DialogController : MonoBehaviour {
 	public void EndDialog() {
 		background.SetActive(false);
 		Debug.Log("End Dialog");
+		gameEngine.LoadNextStation();
 	}
 }

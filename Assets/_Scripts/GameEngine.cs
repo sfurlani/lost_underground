@@ -59,7 +59,7 @@ public class GameEngine : MonoBehaviour {
 	public void LoadNextStation() {
 		stationIndex++;
 		Station station = stations[stationIndex-1];
-		this.stationController;
+		stationController.LoadStation(station);
 	}
 
 	public void LoadNextTunnel() {
