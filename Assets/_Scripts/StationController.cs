@@ -27,6 +27,8 @@ public class StationController : MonoBehaviour {
 	public GameObject sfx;
 	private SoundEffects sfxController;
 
+	public GameObject exitCanvas;
+
 	// Use this for initialization
 	void Start () {
 		gameEngine = gameEngineObject.GetComponent<GameEngine>();
@@ -68,12 +70,23 @@ public class StationController : MonoBehaviour {
 		sfxController.playSFX(SoundEffect.DoorOpen);
 		musicController.playBackground(currentStation.a);
 		Invoke("CloseDoor",10.0f);
+		exitCanvas.SetActive(true);
 	}
 
 	public void CloseDoor() {
 		sfxController.playSFX(SoundEffect.DoorClose);
 		doors.GetComponent<Animator>().SetTrigger("Close");
 		Invoke("StartTrain",1.0f);
+		exitCanvas.SetActive(false);
+	}
+
+	public void ExitTrain() {
+		if (!IsInvoking("CloseDoor")) {
+			return; // too late!
+		}
+
+		CancelInvoke("CloseDoor");
+		// TODO: Exit Level
 	}
 
 	public void StartTrain() {

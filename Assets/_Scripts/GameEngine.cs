@@ -58,6 +58,7 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void LoadNextStation() {
+//		dialogCanvas.SetActive(false);
 		stationIndex++;
 		Debug.Log("Loading Station "+stationIndex);
 		Station station = stations[stationIndex-1];
@@ -66,6 +67,7 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void LoadNextTunnel() {
+//		dialogCanvas.SetActive(true);
 		tunnelIndex++;
 		Debug.Log("Loading Tunnel "+tunnelIndex);
 		DialogEvent startDialog = events[tunnelIndex-1];
