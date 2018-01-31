@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Station {
 	public bool vb;
@@ -33,6 +34,8 @@ public class GameEngine : MonoBehaviour {
 	public GameObject stationObject;
 	public GameObject dialogCanvas;
 
+	public GameObject endingInjectorPrefab;
+
 	private DialogController dialogController;
 	private StationController stationController;
 
@@ -58,8 +61,11 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void LoadNextStation() {
-//		dialogCanvas.SetActive(false);
 		stationIndex++;
+		if (stationIndex > stations.GetLength(0)) {
+			NeverEnding();
+			return;
+		}
 		Debug.Log("Loading Station "+stationIndex);
 		Station station = stations[stationIndex-1];
 		Debug.Log(station);
@@ -67,12 +73,22 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void LoadNextTunnel() {
-//		dialogCanvas.SetActive(true);
 		tunnelIndex++;
+		if (tunnelIndex > events.GetLength(0)) {
+			NeverEnding();
+			return;
+		}
 		Debug.Log("Loading Tunnel "+tunnelIndex);
 		DialogEvent startDialog = events[tunnelIndex-1];
 		Debug.Log(startDialog);
 		this.dialogController.StartDialog(startDialog);
+	}
+
+	private void NeverEnding() {
+		Debug.Log("Loading Never Ending");
+		GameObject ending = Instantiate(endingInjectorPrefab);
+		ending.GetComponent<Injector>().ending = Ending.Never;
+		SceneManager.LoadScene("final");
 	}
 		
 	private readonly Station[] stations = {
@@ -93,8 +109,7 @@ public class GameEngine : MonoBehaviour {
 		tunnel0,
 		tunnel1,
 		tunnel2,
-		tunnel3,
-		tunnel4
+		tunnel3
 	};
 
 	public static readonly DialogEvent _tunnel0 = new DialogEvent() { dialog = new Dialog[] {
@@ -157,7 +172,7 @@ public static readonly DialogEvent tunnel1 = new DialogEvent() { dialog = new Di
 	};
 
 public static readonly DialogEvent tunnel2 = new DialogEvent() { dialog = new Dialog[] {
-		new Dialog() {s = n, t = "Marcus is calling.", p = true, c = m},
+		new Dialog() {s = n, t = "An old friend, Marcus, is calling.", p = true, c = m},
 		new Dialog() {s = m, t = "Do you remember ***************ville line? We were so *********stupid.", p = true, c = m},
 		new Dialog() {s = y, t = "Marcus! Can you hear me?", p = true, c = m},
 		new Dialog() {s = m, t = "****surprised we survived...", p = true, c = m},
